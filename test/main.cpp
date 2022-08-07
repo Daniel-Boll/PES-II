@@ -1,4 +1,6 @@
 #include <TDD/dollar.hpp>
+#include <TDD/franc.hpp>
+
 #include <gtest/gtest.h>
 
 TEST(DollarTest, Multiplication) {
@@ -15,4 +17,12 @@ TEST(DollarTest, TestEquality) {
 
   EXPECT_FALSE(Dollar(5) == Dollar(6));
   EXPECT_FALSE(Dollar{5}.equals(Dollar{6}));
+}
+
+TEST(FrancTest, Multiplication) {
+  Franc five(5);
+  Franc product = five.times(2);
+  EXPECT_EQ(10, product.getAmount());
+  product = five.times(3);
+  EXPECT_EQ(15, product.getAmount());
 }

@@ -1,7 +1,6 @@
-#include <TDD/dollar.hpp>
-#include <TDD/franc.hpp>
-
 #include <gtest/gtest.h>
+
+#include <TDD/money.hpp>
 
 TEST(DollarTest, Multiplication) {
   Dollar five(5);
@@ -12,10 +11,8 @@ TEST(DollarTest, Multiplication) {
 }
 
 TEST(DollarTest, TestEquality) {
-  EXPECT_TRUE(Dollar(5) == Dollar(5));
   EXPECT_TRUE(Dollar{5}.equals(Dollar{5}));
 
-  EXPECT_FALSE(Dollar(5) == Dollar(6));
   EXPECT_FALSE(Dollar{5}.equals(Dollar{6}));
 }
 
@@ -26,3 +23,16 @@ TEST(FrancTest, Multiplication) {
   product = five.times(3);
   EXPECT_EQ(15, product.getAmount());
 }
+
+TEST(FrancTest, TestEquality) {
+  EXPECT_TRUE(Franc{5}.equals(Franc{5}));
+
+  EXPECT_FALSE(Franc{5}.equals(Franc{6}));
+}
+
+// FIXME: Couldn't make it..
+// TEST(MoneyTest, TestEquality) {
+//   // Check cross equality between instances
+//   EXPECT_FALSE(Dollar{5}.equals(Franc{5}));
+//   EXPECT_FALSE(Franc{5}.equals(Dollar{5}));
+// }

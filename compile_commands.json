@@ -1,0 +1,11 @@
+[
+{
+  "directory": "/home/danielboll/dev/Unioeste/2021/PES-II/TDD",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Iinclude", "-I", "/home/danielboll/.xmake/packages/g/gtest/1.12.1/77b9096bc4b34d9282f672d36b015ba9/include", "-DNDEBUG", "-o", "build/.objs/tdd_lib/linux/x86_64/release/source/dolar.cpp.o", "source/dolar.cpp"],
+  "file": "source/dolar.cpp"
+},
+{
+  "directory": "/home/danielboll/dev/Unioeste/2021/PES-II/TDD",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Iinclude", "-I", "/home/danielboll/.xmake/packages/g/gtest/1.12.1/77b9096bc4b34d9282f672d36b015ba9/include", "-DNDEBUG", "-o", "build/.objs/test/linux/x86_64/release/test/main.cpp.o", "test/main.cpp"],
+  "file": "test/main.cpp"
+}]

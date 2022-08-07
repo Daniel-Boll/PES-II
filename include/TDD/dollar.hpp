@@ -7,7 +7,7 @@ class Dollar {
 
 public:
   explicit Dollar(int32_t amount);
-  void times(int multiplier);
+  Dollar times(int multiplier);
 
   int32_t getAmount() const;
 };

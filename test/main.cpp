@@ -3,6 +3,8 @@
 
 TEST(DollarTest, Multiplication) {
   Dollar five(5);
-  five.times(2);
-  EXPECT_EQ(10, five.getAmount());
+  Dollar product = five.times(2);
+  EXPECT_EQ(10, product.getAmount());
+  product = five.times(3);
+  EXPECT_EQ(15, product.getAmount());
 }

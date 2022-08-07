@@ -1,9 +1,8 @@
+#include <TDD/dollar.hpp>
 #include <gtest/gtest.h>
 
-// Demonstrate some basic assertions.
-TEST(HelloTest, BasicAssertions) {
-  // Expect two strings not to be equal.
-  EXPECT_STRNE("hello", "world");
-  // Expect equality.
-  EXPECT_EQ(7 * 6, 42);
+TEST(DollarTest, Multiplication) {
+  Dollar five(5);
+  five.times(2);
+  EXPECT_EQ(10, five.getAmount());
 }

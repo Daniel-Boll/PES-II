@@ -29,20 +29,13 @@ jobs:
     - name: "Checkout code"
       uses: actions/checkout@v2
 
-    - name: "Install cmake"
-      uses: lukka/get-cmake@latest
-
     - name: "Install dependencies"
       run: brew install coreutils googletest
 
-    - name: "Configure"
-      run: cmake -B build -DCMAKE_BUILD_TYPE="${{ matrix.build_type }}" -DCMAKE_CXX_COMPILER="${{ matrix.cxx }}" -DCMAKE_C_COMPILER="${{ matrix.cc }}"
-
     - name: "Build code"
-      run: cmake --build build --config "${{ matrix.build_type }}"
+      run: make -j8
 
     - name: "Run unit tests"
       run: |
-        cd build
         set CTEST_OUTPUT_ON_FAILURE=1
         ./build/linux/x86_64/release/ci_test

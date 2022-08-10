@@ -9,7 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        name: [ubuntu-clang, ubuntu-gcc, macos-clang, macos-gcc, windows-msvc, windows-gcc, windows-clang]
+        name: [ubuntu-clang, ubuntu-gcc]
+
         include:
           - name: ubuntu-clang
             os: ubuntu-latest
@@ -23,36 +24,6 @@ jobs:
             cxx: g++
             cc: gcc
 
-          - name: macos-clang
-            os: macos-latest
-            os_label: MacOS
-            cxx: clang++
-            cc: clang
-
-          - name: macos-gcc
-            os: macos-latest
-            os_label: MacOS
-            cxx: g++
-            cc: gcc
-
-          - name: windows-msvc
-            os: windows-latest
-            os_label: Windows
-            cxx: cl.exe
-            cc: cl.exe
-
-          - name: windows-gcc
-            os: windows-latest
-            os_label: Windows
-            cxx: g++
-            cc: gcc
-
-          - name: windows-clang
-            os: windows-latest
-            os_label: Windows
-            cxx: clang++
-            cc: clang
-
         build_type: [Release, Debug]
 
     steps:
@@ -63,7 +34,9 @@ jobs:
       uses: lukka/get-cmake@latest
 
     - name: "Configure"
-      run: cmake -B build -DCMAKE_BUILD_TYPE="${{ matrix.build_type }}" -DCMAKE_CXX_COMPILER="${{ matrix.cxx }}" -DCMAKE_C_COMPILER="${{ matrix.cc }}"
+      run: |
+        cmake -B build -DCMAKE_BUILD_TYPE="${{ matrix.build_type }}" -DCMAKE_CXX_COMPILER="${{ matrix.cxx }}" -DCMAKE_C_COMPILER="${{ matrix.cc }}"
+        apt-get install googletest
 
     - name: "Build code"
       run: cmake --build build --config "${{ matrix.build_type }}"

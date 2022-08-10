@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        name: [macos-clang, macos-gcc]
+        name: [macos-clang]
         include:
           - name: macos-clang
             os: macos-latest
@@ -17,13 +17,7 @@ jobs:
             cxx: clang++
             cc: clang
 
-          - name: macos-gcc
-            os: macos-latest
-            os_label: MacOS
-            cxx: g++
-            cc: gcc
-
-        build_type: [Release, Debug]
+        build_type: [Release]
 
     steps:
     - name: "Checkout code"

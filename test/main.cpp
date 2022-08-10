@@ -22,7 +22,7 @@ TEST(Calculator, Mul) {
 
 TEST(Calculator, Div) {
   EXPECT_EQ(calculator::div(1, 2), 0);
-  EXPECT_EQ(calculator::div(2, 3), 1);
+  EXPECT_EQ(calculator::div(2, 3), 0);
   EXPECT_EQ(calculator::div(3, 4), 0);
 }
 

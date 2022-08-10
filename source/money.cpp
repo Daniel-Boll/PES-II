@@ -11,6 +11,4 @@ int32_t Money::getAmount() const { return amount; }
 //   return amount == other.amount;
 // }
 
-bool Money::equals(const Money &other) const {
-  return amount == other.amount;
-}
+bool Money::equals(const Money &other) const { return amount == other.amount; }

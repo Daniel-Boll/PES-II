@@ -9,21 +9,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        name: [ubuntu-clang, ubuntu-gcc]
+        name: [macos-clang, macos-gcc]
         include:
-          - name: ubuntu-clang
-            os: ubuntu-latest
-            os_label: Ubuntu
+          - name: macos-clang
+            os: macos-latest
+            os_label: MacOS
             cxx: clang++
             cc: clang
 
-          - name: ubuntu-gcc
-            os: ubuntu-latest
-            os_label: Ubuntu
+          - name: macos-gcc
+            os: macos-latest
+            os_label: MacOS
             cxx: g++
             cc: gcc
 
-          build_type: [Release, Debug]
+        build_type: [Release, Debug]
 
     steps:
     - name: "Checkout code"
@@ -32,11 +32,11 @@ jobs:
     - name: "Install cmake"
       uses: lukka/get-cmake@latest
 
+    - name: "Install dependencies"
+      run: brew install coreutils googletest
+
     - name: "Configure"
       run: cmake -B build -DCMAKE_BUILD_TYPE="${{ matrix.build_type }}" -DCMAKE_CXX_COMPILER="${{ matrix.cxx }}" -DCMAKE_C_COMPILER="${{ matrix.cc }}"
-
-    - name: "Fetch dependencies"
-      run: sudo apt-get install googletest
 
     - name: "Build code"
       run: cmake --build build --config "${{ matrix.build_type }}"

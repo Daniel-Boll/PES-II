@@ -7,6 +7,7 @@ cmake_minimum_required(VERSION 3.15.0)
 cmake_policy(SET CMP0091 NEW)
 project(ci_test LANGUAGES CXX C)
 
+enable_testing()
 # target
 add_executable(ci_test "")
 set_target_properties(ci_test PROPERTIES OUTPUT_NAME "ci_test")
@@ -52,4 +53,3 @@ target_link_options(ci_test PRIVATE
 target_sources(ci_test PRIVATE
     test/main.cpp
 )
-

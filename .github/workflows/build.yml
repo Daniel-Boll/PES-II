@@ -10,7 +10,6 @@ jobs:
       fail-fast: false
       matrix:
         name: [ubuntu-clang, ubuntu-gcc]
-        # name: [ubuntu-clang, ubuntu-gcc, macos-clang, macos-gcc, windows-msvc, windows-gcc, windows-clang]
         include:
           - name: ubuntu-clang
             os: ubuntu-latest
